@@ -15,5 +15,12 @@ npm start
 
 Example requests can be found in requests folder.
 
+Employee account can be done with this script:
+
+
+./scripts/register_admin.sh
+
+
+
 ---
 Authors: Maks Turtiainen, Vili Ahava, Sami Virtanen
