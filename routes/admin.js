@@ -19,7 +19,7 @@ loginRouter.post('/', async (request, response) => {
   }
 
   const userForToken = {
-    email: user.email,
+    privateEmail: user.privateEmail,
     id: user._id
   }
 
@@ -30,11 +30,12 @@ loginRouter.post('/', async (request, response) => {
     response.status(200).send({
         token,
         idx: user.idx,
-        email: user.email,
+        privateEmail: user.privateEmail,
+        workEmail: user.workEmail,
         firstName: user.firstName,
         lastName: user.lastName,
-        bonusPoints: user.bonusPoints,
-        memberSince: user.memberSince
+        store: user.store,
+        employeeSince: user.employeeSince
     })
 })
 

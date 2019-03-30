@@ -1,7 +1,11 @@
+// Script for importing JSON:s
+
 const User = require('../models/user')
 const fs = require('fs')
-const jsondata = require('../jsondata/customers.json')
 const axios = require('axios')
+
+// Here JSON that you want to import to database
+const jsondata = require('../jsondata/customers.json')
 
 console.log(jsondata)
 

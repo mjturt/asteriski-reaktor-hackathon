@@ -1,4 +1,4 @@
-// Not used becouse decided to use mongodb
+// Not used because decided to use mongodb
 
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
