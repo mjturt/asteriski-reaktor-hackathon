@@ -1,0 +1,12 @@
+POST http://localhost:3001/api/register
+Content-Type: application/json
+
+{
+    "idx":0,
+    "email":"jotain@example.com",
+    "firstName":"Masa",
+    "lastName":"Testimies",
+    "password":"pass",
+    "bonusPoints":"123",
+    "memberSince":"2018-06-04T00:23:11.334Z"
+}

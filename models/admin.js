@@ -1,25 +1,27 @@
-// User (customer) database schema
+// Admin (employee) database schema
 
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
     idx: Number,
-    email: String,
+    privateEmail: String,
+    workEmail: String,
     firstName: String,
     lastName: String,
     passwordHash: String,
-    bonusPoints: String,
-    memberSince: String
+    store: String,
+    employeeSince: String
 })
 
 userSchema.statics.format = (user) => {
     return {
         idx: user.idx,
-        email: user.email,
+        privateEmail: user.privateEmail,
+        workEmail: user.workEmail,
         firstName: user.firstName,
         lastName: user.lastName,
-        bonusPoints: user.bonusPoints,
-        memberSince: user.memberSince
+        store: user.store,
+        employeeSince: user.employeeSince
     }
 }
 

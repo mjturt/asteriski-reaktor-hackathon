@@ -9,5 +9,11 @@ cd asteriski-reaktor-hackathon
 npm i
 npm start
 ``````
+- Login: <http://localhost:3001/api/login>
+- Admin login: <http://localhost:3001/api/admin>
+- Register: <http://localhost:3001/api/register>
+
+Example requests can be found in requests folder.
+
 ---
 Authors: Maks Turtiainen, Vili Ahava, Sami Virtanen

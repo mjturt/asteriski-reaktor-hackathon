@@ -1,15 +1,15 @@
-// Custom login route
+// Admin login route
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const loginRouter = require('express').Router()
-const User = require('../models/user')
+const Admin = require('../models/admin')
 const config = require('../utils/config')
 
 loginRouter.post('/', async (request, response) => {
   const body = request.body
 
-  const user = await User.findOne({ email: body.email })
+  const user = await Admin.findOne({ privateEmail: body.privateEmail })
   const passwordCorrect = user === null ?
     false :
     await bcrypt.compare(body.password, user.passwordHash)

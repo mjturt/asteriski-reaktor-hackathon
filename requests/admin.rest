@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/admin
+Content-Type: application/json
+
+{
+  "privateEmail": "email",
+  "password": "pass"
+}
