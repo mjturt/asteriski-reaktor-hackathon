@@ -3,3 +3,7 @@ tags
 node_modules
 .eslintrc.json
 config/database.js
+.env
+.eslintignore
+.eslintrc.js
+jsondata/
