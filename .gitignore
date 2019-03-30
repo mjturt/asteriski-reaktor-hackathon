@@ -7,3 +7,4 @@ config/database.js
 .eslintignore
 .eslintrc.js
 jsondata/
+reveal.js/
