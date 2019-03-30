@@ -7,8 +7,9 @@ const mongoose = require('mongoose')
 const middleware = require('./utils/middleware')
 const usersRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
+const adminLoginRouter = require('./routes/admin')
+const showUsersRouter = require('./routes/showusers')
 const config = require('./utils/config')
-const User = require('./models/user')
 
 mongoose.connect(config.mongoUrl)
 mongoose.Promise = global.Promise
@@ -19,7 +20,9 @@ app.use(express.static('build'))
 app.use(middleware.logger)
 
 app.use('/api/login', loginRouter)
+app.use('/api/admin', adminLoginRouter)
 app.use('/api/register', usersRouter)
+app.use('/api/showusers', showUsersRouter)
 
 app.use(middleware.error)
 

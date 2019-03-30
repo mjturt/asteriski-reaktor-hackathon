@@ -2,41 +2,41 @@
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const loginRouter = require('express').Router()
+const adminLoginRouter = require('express').Router()
 const Admin = require('../models/admin')
 const config = require('../utils/config')
 
-loginRouter.post('/', async (request, response) => {
+adminLoginRouter.post('/', async (request, response) => {
   const body = request.body
 
-  const user = await Admin.findOne({ privateEmail: body.privateEmail })
-  const passwordCorrect = user === null ?
+  const admin = await Admin.findOne({ privateEmail: body.privateEmail })
+  const passwordCorrect = admin === null ?
     false :
-    await bcrypt.compare(body.password, user.passwordHash)
+    await bcrypt.compare(body.password, admin.passwordHash)
 
-  if (!(user && passwordCorrect)) {
+  if (!(admin && passwordCorrect)) {
     return response.status(401).send({ error: 'invalid email or password' })
   }
 
-  const userForToken = {
-    privateEmail: user.privateEmail,
-    id: user._id
+  const adminForToken = {
+    privateEmail: admin.privateEmail,
+    id: admin._id
   }
 
   console.log(config.secret)
 
-  const token = jwt.sign(userForToken, config.secret)
+  const token = jwt.sign(adminForToken, config.secret)
 
     response.status(200).send({
         token,
-        idx: user.idx,
-        privateEmail: user.privateEmail,
-        workEmail: user.workEmail,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        store: user.store,
-        employeeSince: user.employeeSince
+        idx: admin.idx,
+        privateEmail: admin.privateEmail,
+        workEmail: admin.workEmail,
+        firstName: admin.firstName,
+        lastName: admin.lastName,
+        store: admin.store,
+        employeeSince: admin.employeeSince
     })
 })
 
-module.exports = loginRouter
+module.exports = adminLoginRouter

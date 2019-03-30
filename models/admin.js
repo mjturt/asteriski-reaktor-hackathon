@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     idx: Number,
     privateEmail: String,
     workEmail: String,
@@ -13,18 +13,18 @@ const userSchema = new mongoose.Schema({
     employeeSince: String
 })
 
-userSchema.statics.format = (user) => {
+adminSchema.statics.format = (admin) => {
     return {
-        idx: user.idx,
-        privateEmail: user.privateEmail,
-        workEmail: user.workEmail,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        store: user.store,
-        employeeSince: user.employeeSince
+        idx: admin.idx,
+        privateEmail: admin.privateEmail,
+        workEmail: admin.workEmail,
+        firstName: admin.firstName,
+        lastName: admin.lastName,
+        store: admin.store,
+        employeeSince: admin.employeeSince
     }
 }
 
-const User = mongoose.model('User', userSchema)
+const Admin = mongoose.model('Admin', adminSchema)
 
-module.exports = User
+module.exports = Admin
