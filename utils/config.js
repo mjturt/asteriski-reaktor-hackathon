@@ -5,9 +5,11 @@ require('dotenv').config()
 let port = 3001
 let mongoUrl = "mongodb://127.0.0.1/reaktor"
 let secret = "asdasd"
+let adminSecret = "moimoi"
 
 module.exports = {
     mongoUrl,
     port,
-    secret
+    secret,
+    adminSecret
 }

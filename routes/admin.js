@@ -23,9 +23,9 @@ adminLoginRouter.post('/', async (request, response) => {
     id: admin._id
   }
 
-  console.log(config.secret)
+  console.log(config.adminSecret)
 
-  const token = jwt.sign(adminForToken, config.secret)
+  const token = jwt.sign(adminForToken, config.adminSecret)
 
     response.status(200).send({
         token,
